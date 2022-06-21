@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Layout from "@/components/layout";
 import Box from "@mui/material/Box";
 import PostFrom from "@/components/postFrom";
@@ -59,11 +60,11 @@ const checkboxOptions = [
     value: "2",
   },
 ];
-export default function NewPost() {
+export default function Form() {
   const { handleSubmit, control, setValue } = useForm(defaultValues);
-
+  const [formData, setFormData] = useState({});
   const onSubmit = (data) => {
-    console.log(data);
+    setFormData(data);
   };
   return (
     <Box
@@ -111,10 +112,14 @@ export default function NewPost() {
         />
         <SubmitButton />
       </PostFrom>
+      <div>
+        form data object: <br />
+        {JSON.stringify(formData)}
+      </div>
     </Box>
   );
 }
-NewPost.getLayout = function getLayout(page) {
+Form.getLayout = function getLayout(page) {
   return (
     <Layout>
       <PageHead header="Submit new post" />
