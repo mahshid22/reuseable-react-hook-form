@@ -1,2 +1,2 @@
-# React hooh form with MUI 
+# React hooh form with MUI reusable components 
 react-hook-form
