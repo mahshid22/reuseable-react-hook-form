@@ -13,8 +13,9 @@ import InputDropdown from "@/components/mui-form-components/inputDropdown";
 import InputSwitch from "@/components/mui-form-components/inputSwitch";
 import InputMultiCheckbox from "@/components/mui-form-components/inputMultiCheckbox";
 import FormSlider from "@/components/mui-form-components/muiSlider";
+import InputDate from "@/components/mui-form-components/datePicker";
 const defaultValues = {
-  name: "",
+  name: "fsdf",
   mobile: "",
   description: "",
 };
@@ -64,6 +65,7 @@ export default function Form() {
   const { handleSubmit, control, setValue } = useForm(defaultValues);
   const [formData, setFormData] = useState({});
   const onSubmit = (data) => {
+    console.log(data);
     setFormData(data);
   };
   return (
@@ -109,6 +111,12 @@ export default function Form() {
           defaultValue={[0, 10]}
           step={1}
           max={10}
+        />
+        <InputDate
+          name="MUI_persian_dp"
+          control={control}
+          label="MUI jalali datePicher"
+          defaultValue={new Date()}
         />
         <SubmitButton />
       </PostFrom>
